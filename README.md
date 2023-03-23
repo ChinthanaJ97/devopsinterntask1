@@ -1,4 +1,5 @@
 designed architecture is shown in image1
+![image1](https://user-images.githubusercontent.com/125088387/227204595-d8f5542a-7282-4ace-8457-c965e6a82a39.png)
 
 1.	Create an amazon ec2  ubuntu instance with a keypair
 2.	Configure security group allow http ssh https tcp(image2)
