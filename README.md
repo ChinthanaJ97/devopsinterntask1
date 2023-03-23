@@ -55,7 +55,6 @@ Designed architecture is shown in image1
 ![image](https://user-images.githubusercontent.com/125088387/227221140-385ac092-4fdc-4f54-b64a-317712c1d07e.png)
 
 
-
         <IfModule mod_ssl.c>
                 <VirtualHost app.chinthanaa.com:443>
                         ServerAdmin chinthanapriy4@gmail.com
