@@ -1,22 +1,22 @@
-designed architecture is shown in image1
+Designed architecture is shown in image1
 ![image1](https://user-images.githubusercontent.com/125088387/227204595-d8f5542a-7282-4ace-8457-c965e6a82a39.png)
 
-1.	Create an amazon ec2  ubuntu instance with a keypair
-2.	Configure security group allow http ssh https tcp(image2)
+1.	Created an amazon ec2  ubuntu instance with a keypair
+2.	Configured security group with allowing http, ssh, https and tcp(image2)
 ![40beeb05-45a8-43d2-bb0b-2310861e19a6](https://user-images.githubusercontent.com/125088387/227209096-1e65565b-1224-4c32-bd70-65f500a9ef9d.jpg)
 
 
-4.	Connect using private ip via Xshell
-5.	Create a python file inside ec2 that display helloworld
-6.	Create a dockerfile to execute the python file
-7.	Docker build docker image ball blaa
-8.	Then I push it to my docker hub repo
-9.	Then I login to docker hub using username password by my ec2
-10.	Then I run a docker container importing image form my docker repo
+4.	Connected to ec2 using private ip via Xshell
+5.	Created a python file inside ec2 that display "hello world"
+6.	Created a dockerfile to execute the python file
+7.	Dockerfile builds docker image 
+8.	Then docker image was pushed into my docker hub repo
+9.	Then logged into my docker hub using username password through my ec2
+10.	Then the docker container was run importing image from my docker repo
 11.	Now it runs on ec2 localhost:8080 (myip.8080)
-12.	Install apache server
-13.	Reach to /ect/appche2/sites-available
-14.	Create docker.conf file and configure reverse proxy and configure domain name into ec2 localhost:8080 , domain name is taken by godaddy
+12.	Next Installation of apache server was done (Sudo apt-get intall apache2)
+13.	Reached to /ect/appche2/sites-available
+14.	Created a docker.conf file and configured reverse proxy and configured domain name into ec2 localhost:8080 , domain name was purchased from godaddy.com
 
         <Virtualhost *:80>
             ServerName        http://app.chinthanaa.com/
@@ -36,16 +36,25 @@ designed architecture is shown in image1
         </Virtualhost>
 
 
-14.	Then create a public hosted zone in route 53 giving the godady domain name then update the four  NS record of the route 53 in the godaddy domain registry.(image3)
+14.	Then created a public hosted zone in route 53 giving the godady domain name and then updated the four  NS record from the route 53 in the godaddy domain registry.(image3)
 ![44e3b51d-0f9e-417d-9bed-dbc215d946c3](https://user-images.githubusercontent.com/125088387/227209389-bbbdaee6-f0e3-452e-a1f3-14944b089294.jpg)
 
 
-16.	Then add two name records in route 53 giving the subdomain as app and www(image4)
+16.	Then added two name records in route 53 giving the subdomain as app and www(image4)
 ![1622c0bc-b355-4637-a944-beba85e6e79e](https://user-images.githubusercontent.com/125088387/227209596-7008591d-e272-4dd7-a8b9-3bc78db86936.jpg)
 
 
 18.	Then after few hours my domain name is directly going to docker running port of my ec2 instance.
-19.	Then I get a free ssl certification by {url} and did configuration  part
+19.	Then obtained free ssl certification by ZeroSSL and did the configuration  part
+20.     Downloaded zip file included 3 files (certificate.crt, ca_bundle.crt, private.key) 
+21.     certificate.crt and ca_bundle.crt was added to /etc/ssl/    and private.key was added to private folder at /etc/ssl/private/ 
+
+![image](https://user-images.githubusercontent.com/125088387/227219925-744ccad0-2d7b-4984-b091-d09e3479683c.png)
+
+22.     Default certificates were then commented
+![image](https://user-images.githubusercontent.com/125088387/227221140-385ac092-4fdc-4f54-b64a-317712c1d07e.png)
+
+
 
         <IfModule mod_ssl.c>
                 <VirtualHost app.chinthanaa.com:443>
